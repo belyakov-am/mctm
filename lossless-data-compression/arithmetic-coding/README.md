@@ -23,5 +23,5 @@ where `compressed.txt` is a file with compressed data and `decompressed.txt` is 
 
 All arithmetics is done with pythons `Decimal` class. One can pass optional argument `--precision` with any integer number.
 It will change number of decimal places in computations. 
-By default it is set to 1000 for compressing any files without losses. But if one has not so huge files it is possible 
+By default it is set to 10000. But if one has huge files it is possible 
 to control quality of compression and compression output size with this parameter.

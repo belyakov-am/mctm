@@ -7,7 +7,7 @@ from typing import Dict, Tuple, IO
 COMPRESS = 'compress'
 DECOMPRESS = 'decompress'
 
-PRECISION = 1000
+PRECISION = 10000
 
 # Type definitions
 FrequencyTable = Dict[str, int]
