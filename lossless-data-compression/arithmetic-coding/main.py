@@ -7,6 +7,8 @@ from typing import Dict, Tuple, IO
 COMPRESS = 'compress'
 DECOMPRESS = 'decompress'
 
+PRECISION = 1000
+
 # Type definitions
 FrequencyTable = Dict[str, int]
 ProbabilityTable = Dict[str, Decimal]
@@ -156,21 +158,25 @@ def init_arg_parser() -> ArgumentParser:
                         help='Option for either compressing or decompressing input file')
     parser.add_argument('input', nargs=1, help='Name of the input file')
     parser.add_argument('output', nargs=1, help='Name of the output file')
+    parser.add_argument('--precision', type=int, default=PRECISION,
+                        help='Number of decimal places for controlling algorithms quality')
 
     return parser
 
 
 def main():
-    # TODO: remove (?)
-    getcontext().prec = 1000
-    coder = ArithmeticCoding()
-
     parser = init_arg_parser()
     args = parser.parse_args()
 
     option = args.option[0]
     input_name = args.input[0]
     output_name = args.output[0]
+    precision = args.precision
+
+    # TODO: remove (?)
+    getcontext().prec = precision
+
+    coder = ArithmeticCoding()
 
     if option == COMPRESS:
         coder.compress(input_name, output_name)
