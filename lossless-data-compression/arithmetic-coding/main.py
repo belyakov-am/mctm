@@ -120,7 +120,7 @@ class ArithmeticCoding:
                 if not prob:
                     continue
 
-                ch, value = prob.split(':', maxsplit=1)
+                ch, value = prob.rsplit(':', maxsplit=1)
                 self.freq_table[ch] = int(value)
                 self.text_size += self.freq_table[ch]
 
